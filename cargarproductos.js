@@ -1,5 +1,6 @@
 const productos = [
   {
+    id: 1,
     nombre: "Coca-Cola 500ml",
     imagen: "tele.jpg",
     descripcion: "Gaseosa Coca-Cola de 500ml bien fría.",
@@ -7,6 +8,7 @@ const productos = [
     stock: 25
   },
   {
+    id: 2,
     nombre: "Papas Lays Clásicas",
     imagen: "tele.jpg",
     descripcion: "Papas fritas sabor clásico en paquete mediano.",
@@ -14,6 +16,7 @@ const productos = [
     stock: 18
   },
   {
+    id: 3,
     nombre: "Alfajor Oreo",
     imagen: "tele.jpg",
     descripcion: "Alfajor relleno con crema sabor vainilla.",
@@ -21,6 +24,7 @@ const productos = [
     stock: 30
   },
   {
+    id: 4,
     nombre: "Agua Mineral 1.5L",
     imagen: "tele.jpg",
     descripcion: "Botella de agua mineral sin gas.",
@@ -28,6 +32,7 @@ const productos = [
     stock: 20
   },
   {
+    id: 5,
     nombre: "Chocolate Milka",
     imagen: "tele.jpg",
     descripcion: "Chocolate con leche Milka de 55g.",
@@ -35,6 +40,7 @@ const productos = [
     stock: 14
   },
   {
+    id: 6,
     nombre: "Caramelos Sugus",
     imagen: "tele.jpg",
     descripcion: "Caramelos masticables surtidos.",
@@ -42,6 +48,7 @@ const productos = [
     stock: 50
   },
   {
+    id: 7,
     nombre: "Energizante Speed",
     imagen: "tele.jpg",
     descripcion: "Bebida energizante lata de 250ml.",
@@ -49,6 +56,7 @@ const productos = [
     stock: 12
   },
   {
+    id: 8,
     nombre: "Galletitas Oreo",
     imagen: "tele.jpg",
     descripcion: "Galletitas rellenas de crema sabor vainilla.",
@@ -56,6 +64,7 @@ const productos = [
     stock: 16
   },
   {
+    id: 9,
     nombre: "Chicle Beldent",
     imagen: "tele.jpg",
     descripcion: "Chicles sabor menta sin azúcar.",
@@ -63,6 +72,7 @@ const productos = [
     stock: 40
   },
   {
+    id: 10,
     nombre: "Bon o Bon",
     imagen: "tele.jpg",
     descripcion: "Bombón de chocolate relleno con pasta de maní.",
@@ -80,8 +90,13 @@ function cargar() {
                         <p id="detalle">${productos[i].descripcion}</p>
                         <h3 id="precio">$ ${productos[i].precio}</h3>
                         <p id="stock">${productos[i].stock}</p>
-                        <button id="btndetalle">Ver detalle</button>`
+                        <button id="btndetalle" onclick="verdetalle(${productos[i].id})">Ver detalle</button>`
         document.getElementById("boxproductos").appendChild(parrafo)
     }
 }
 cargar()
+
+function verdetalle(idproducto) {
+  localStorage.setItem("id", idproducto)
+  window.location.href ="detalle.html"
+}
