@@ -97,6 +97,8 @@ function cargar() {
 cargar()
 
 function verdetalle(idproducto) {
-  localStorage.setItem("id", idproducto)
+  const buscarProducto = productos.find(producto => producto.id === parseInt(idproducto));
+  let productojson = JSON.stringify(buscarProducto)
+  localStorage.setItem("producto", productojson)
   window.location.href ="detalle.html"
 }
