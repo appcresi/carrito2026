@@ -30,3 +30,62 @@ a{
     grid-template-columns: 1fr 1fr 1fr;
     padding: 10px;
 }
+
+#boxcontador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 20px auto;
+}
+
+#contador {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+    color: #333;
+}
+
+#btnsumar,
+#btnrestar {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#btnsumar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#btnsumar:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+#btnrestar {
+    background-color: #f44336;
+    color: white;
+}
+
+#btnrestar:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+#btnsumar:active,
+#btnrestar:active {
+    transform: scale(0.95);
+}
