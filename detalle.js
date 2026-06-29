@@ -34,3 +34,6 @@ function sumar() {
         alert("Stock máximo")
     }
 }
+const agregar = ()=> {
+    window.location.href ="carrito.html"
+}
