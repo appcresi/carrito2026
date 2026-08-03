@@ -82,18 +82,19 @@ const productos = [
 ];
 
 function cargar() {
-    for (let i = 0; i < productos.length; i = i + 1) {
+    for (let producto of productos) {
         let parrafo = document.createElement("div")
         parrafo.id= "boxproducto"
-        parrafo.innerHTML=`<h2 id="nombre">${productos[i].nombre}</h2>
-                        <img src="${productos[i].imagen}" alt="" id="" width="200">
-                        <p id="detalle">${productos[i].descripcion}</p>
-                        <h3 id="precio">$ ${productos[i].precio}</h3>
-                        <p id="stock">${productos[i].stock}</p>
-                        <button id="btndetalle" onclick="verdetalle(${productos[i].id})">Ver detalle</button>`
+        parrafo.innerHTML=`<h2 id="nombre">${producto.nombre}</h2>
+                        <img src="${producto.imagen}" alt="" id="" width="200">
+                        <p id="detalle">${producto.descripcion}</p>
+                        <h3 id="precio">$ ${producto.precio}</h3>
+                        <p id="stock">${producto.stock}</p>
+                        <button id="btndetalle" onclick="verdetalle(${producto.id})">Ver detalle</button>`
         document.getElementById("boxproductos").appendChild(parrafo)
     }
 }
+
 cargar()
 
 function verdetalle(idproducto) {
