@@ -19,6 +19,7 @@ function cargar() {
         document.getElementById("boxproductos").appendChild(parrafo)
 }
 cargar()
+
 let contar = 0;
 function restar() {
     if (contar>0) {
@@ -34,6 +35,25 @@ function sumar() {
         alert("Stock máximo")
     }
 }
-const agregar = ()=> {
-    window.location.href ="carrito.html"
+
+const agregar = () => {
+    if(contar ==0){
+        alert("Ingrese la cantidad de productos")
+    }else{
+        let carrito = JSON.parse(localStorage.getItem("carrito"))
+        if (carrito== null){
+            carrito = []
+        }
+        productonuevo ={
+            id: productojson.id,
+            imagen: productojson.imagen,
+            nombre: productojson.nombre,
+            cantidad:contar,
+            precio: productojson.precio*contar
+        }
+        carrito.push(productonuevo)
+        productojson = JSON.stringify(carrito)
+        localStorage.setItem("carrito", productojson)
+        window.location.href ="carrito.html"
+    }
 }
