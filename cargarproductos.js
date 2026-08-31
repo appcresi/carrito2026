@@ -84,13 +84,13 @@ const productos = [
 function cargar() {
     for (let producto of productos) {
         let parrafo = document.createElement("div")
-        parrafo.id= "boxproducto"
-        parrafo.innerHTML=`<h2 id="nombre">${producto.nombre}</h2>
-                        <img src="${producto.imagen}" alt="" id="" width="200">
-                        <p id="detalle">${producto.descripcion}</p>
-                        <h3 id="precio">$ ${producto.precio}</h3>
-                        <p id="stock">${producto.stock}</p>
-                        <button id="btndetalle" onclick="verdetalle(${producto.id})">Ver detalle</button>`
+        parrafo.className = "producto-card"
+        parrafo.innerHTML=`<h2 class="producto-nombre">${producto.nombre}</h2>
+                        <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-img">
+                        <p class="producto-desc">${producto.descripcion}</p>
+                        <h3 class="producto-precio">$ ${producto.precio}</h3>
+                        <p class="producto-stock">Stock disponible: ${producto.stock}</p>
+                        <button class="btn btn-primary" onclick="verdetalle(${producto.id})">Ver detalle</button>`
         document.getElementById("boxproductos").appendChild(parrafo)
     }
 }
@@ -103,3 +103,12 @@ function verdetalle(idproducto) {
   localStorage.setItem("producto", productojson)
   window.location.href ="detalle.html"
 }
+
+function vercarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+    if (carrito!= null){
+        document.getElementById("contadorcarrito").style.display="block"
+        document.getElementById("contadorcarrito").innerHTML = localStorage.getItem("contadortotal")
+    }
+}
+vercarrito()

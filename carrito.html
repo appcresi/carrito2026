@@ -15,18 +15,16 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="carrito.html">
-                    <span class="material-symbols-outlined">
-                    shopping_cart
-                    </span>
-                </a></li>
-                <div id="contadorcarrito">
-                    0
-                </div>
+                <li class="cart-link">
+                    <a href="carrito.html">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span id="contadorcarrito">0</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
-    <main id="boxproductos">
+    <main>
         <table>
             <thead>
                 <tr>
@@ -41,6 +39,14 @@
             </tbody>
         </table>
     </main>
+    <div class="carrito-resumen">
+        <h3 id="totalapagar">
+            Precio Total = $ 0
+        </h3>
+        <button id="finalizarcompra" class="btn btn-primary" onclick="finalpago()">
+            Finalizar compra
+        </button>
+    </div>
     <footer> 
         <h2>Mercado Trucheli</h2>
         <p>Av. Siempre Viva 550</p>

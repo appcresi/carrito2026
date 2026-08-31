@@ -3,18 +3,20 @@ let productojson = JSON.parse(producto)
 
 function cargar() {
         let parrafo = document.createElement("div")
-        parrafo.id= "boxproducto"
-        parrafo.innerHTML=`<h2 id="nombre">${productojson.nombre}</h2>
-                        <img src="${productojson.imagen}" alt="" id="" width="200">
-                        <p id="detalle">${productojson.descripcion}</p>
-                        <h3 id="precio">$ ${productojson.precio}</h3>
-                        <p id="stock">${productojson.stock}</p>
-                        <div id="boxcontador">
-                            <button id="btnrestar" onclick="restar()">-</button>
-                            <p id="contador">0</p>
-                            <button id="btnsumar" onclick="sumar()">+</button>
+        parrafo.className = "producto-card producto-detalle"
+        parrafo.innerHTML=`<img src="${productojson.imagen}" alt="${productojson.nombre}" class="producto-img">
+                        <div class="producto-info">
+                            <h2 class="producto-nombre">${productojson.nombre}</h2>
+                            <p class="producto-desc">${productojson.descripcion}</p>
+                            <h3 class="producto-precio">$ ${productojson.precio}</h3>
+                            <p class="producto-stock">Stock disponible: ${productojson.stock}</p>
+                            <div id="boxcontador">
+                                <button id="btnrestar" onclick="restar()">-</button>
+                                <p id="contador">0</p>
+                                <button id="btnsumar" onclick="sumar()">+</button>
+                            </div>
+                            <button id="btnagregar" class="btn btn-primary" onclick="agregar()">Agregar al carrito</button>
                         </div>
-                        <button id="btnagregar" onclick="agregar()">Agregar al carrito</button>
                         `
         document.getElementById("boxproductos").appendChild(parrafo)
 }
@@ -59,3 +61,11 @@ const agregar = () => {
     }
 }
 
+function vercarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+    if (carrito!= null){
+        document.getElementById("contadorcarrito").style.display="block"
+        document.getElementById("contadorcarrito").innerHTML = localStorage.getItem("contadortotal")
+    }
+}
+vercarrito()
