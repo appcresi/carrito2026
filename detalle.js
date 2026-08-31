@@ -54,6 +54,8 @@ const agregar = () => {
         carrito.push(productonuevo)
         productojson = JSON.stringify(carrito)
         localStorage.setItem("carrito", productojson)
+        document.getElementById("contadorcarrito").style.display="block"
         window.location.href ="carrito.html"
     }
 }
+

@@ -126,3 +126,18 @@ tbody tr:hover {
     background: #eef4ff;
     transition: .2s;
 }
+
+#contadorcarrito{
+    background-color: #d32f2f;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    right: 70px;
+    top: 7px;
+    box-shadow: 5px 8px 6px 0px rgba(0, 0, 0, 0.23);
+-webkit-box-shadow: 5px 8px 6px 0px rgba(0, 0, 0, 0.23);
+    display: none;
+}
