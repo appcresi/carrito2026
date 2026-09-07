@@ -3,7 +3,7 @@ let productojson = JSON.parse(productosel)
 let contadortotal = 0;
 let totalapagar = 0;
 
-function cargar(){
+const cargar =()=>{
     for(let producto of productojson){
         let parrafo = document.createElement("tr")
         parrafo.id= producto.id
@@ -11,7 +11,7 @@ function cargar(){
                     <th>${producto.cantidad}</th>
                     <th>${producto.nombre}</th>
                     <th>${producto.precio}</th>
-                    <th><button onclick="eliminarProducto">Eliminar</button></th>
+                    <th><button onclick="eliminarProducto(${producto.id})">Eliminar</button></th>
         `
         contadortotal = contadortotal + producto.cantidad
         document.getElementById("contadorcarrito").innerHTML= contadortotal
@@ -23,19 +23,25 @@ function cargar(){
 }
 cargar()
 
-function vercarrito(){
+const vercarrito = ()=>{
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     if (carrito!= null){
         document.getElementById("contadorcarrito").style.display="block"
     }
 }
+
 vercarrito()
 
-function pagar(){
+
+
+const finalpago=()=>{
     alert("¡Gracias por tu compra! Procesando pago...")
 }
+let boton = document.getElementById("finalizarcompra")
+boton.addEventListener("click", finalpago)
 
-function eliminarProducto(){
-    alert("estas a punto de borrar un producto del carrito.") 
-    document.getElementById("lista1").removeChild(parrafo)
+const eliminarProducto= (idproductoeliminar)=>{
+    alert("estas a punto de borrar un producto del carrito.")
+    let parrafo = document.getElementById(idproductoeliminar)
+    parrafo.parentNode.removeChild(parrafo)
 }

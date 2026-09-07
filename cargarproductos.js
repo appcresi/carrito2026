@@ -81,7 +81,7 @@ const productos = [
   }
 ];
 
-function cargar() {
+const cargar = () => {
     for (let producto of productos) {
         let parrafo = document.createElement("div")
         parrafo.id= "boxproducto"
@@ -97,14 +97,14 @@ function cargar() {
 
 cargar()
 
-function verdetalle(idproducto) {
+const verdetalle = (idproducto) => {
   const buscarProducto = productos.find(producto => producto.id === parseInt(idproducto));
   let productojson = JSON.stringify(buscarProducto)
   localStorage.setItem("producto", productojson)
   window.location.href ="detalle.html"
 }
 
-function vercarrito(){
+const vercarrito = () =>{
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     if (carrito!= null){
         document.getElementById("contadorcarrito").style.display="block"

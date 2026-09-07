@@ -1,7 +1,7 @@
 let producto = localStorage.getItem("producto")
 let productojson = JSON.parse(producto)
 
-function cargar() {
+const cargar = () =>{
         let parrafo = document.createElement("div")
         parrafo.id= "boxproducto"
         parrafo.innerHTML=`<h2 id="nombre">${productojson.nombre}</h2>
@@ -21,13 +21,13 @@ function cargar() {
 cargar()
 
 let contar = 0;
-function restar() {
+const restar = () => {
     if (contar>0) {
         contar = contar - 1;
         document.getElementById("contador").innerHTML= contar
     }
 }
-function sumar() {
+const sumar = ()=> {
     if (contar < productojson.stock) {
         contar = contar + 1;
         document.getElementById("contador").innerHTML= contar
@@ -59,7 +59,7 @@ const agregar = () => {
     }
 }
 
-function vercarrito(){
+const vercarrito = ()=>{
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     if (carrito!= null){
         document.getElementById("contadorcarrito").style.display="block"
